@@ -1,9 +1,6 @@
-server:
-  port: 8083   # transaction service port
-
 spring:
   application:
-    name: TRANSACTION-SERVICE
+    name: transaction-service
 
   datasource:
     url: jdbc:mysql://localhost:3306/transaction_db
@@ -13,7 +10,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update   # tables auto-create/update
+      ddl-auto: update
     show-sql: true
 
   kafka:
@@ -25,9 +22,8 @@ spring:
       acks: all
       retries: 3
       properties:
-        enable.idempotence: true   # exactly-once safety
+        enable.idempotence: true
 
-  
 eureka:
   client:
     service-url:
